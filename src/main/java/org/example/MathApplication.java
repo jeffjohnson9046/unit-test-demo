@@ -2,6 +2,9 @@ package org.example;
 
 import org.example.service.CalculatorService;
 
+/**
+ * A basic math application that exercises an implementation of the {@link org.example.service.CalculatorService}.
+ */
 public class MathApplication {
     private final CalculatorService calculatorService;
 
