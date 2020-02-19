@@ -32,7 +32,7 @@ public class MathApplicationTest {
         when(calculatorService.subtract(10D, 20D))
                 .thenReturn(-10D);
 
-        assertEquals(-10D, calculatorService.subtract(10D, 20D), 0D);
+        assertEquals(-10D, mathApplication.subtract(10D, 20D), 0D);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class MathApplicationTest {
         when(calculatorService.multiply(10D, 20D))
                 .thenReturn(200D);
 
-        assertEquals(200D, calculatorService.multiply(10D, 20D), 0D);
+        assertEquals(200D, mathApplication.multiply(10D, 20D), 0D);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class MathApplicationTest {
         when(calculatorService.divide(10D, 20D))
                 .thenReturn(0.5D);
 
-        assertEquals(0.5D, calculatorService.divide(10D, 20D), 0D);
+        assertEquals(0.5D, mathApplication.divide(10D, 20D), 0D);
     }
 
     @Test(expected = ArithmeticException.class)
@@ -56,6 +56,6 @@ public class MathApplicationTest {
         when(calculatorService.divide(10D, 0D))
                 .thenThrow(new ArithmeticException("cannot divide by zero"));
 
-        calculatorService.divide(10D, 0D);
+        mathApplication.divide(10D, 0D);
     }
 }
