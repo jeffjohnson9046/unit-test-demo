@@ -7,6 +7,8 @@ This repo is a quick and dirty Maven project to understand the basic configurati
 
 As such, this is a _very_ simple project that includes a couple of basic classes that have some unit tests and an example integration test.  The goal is to create some reports around the tests and the code coverage.  The unit tests in this project do not cover 100% of the code, but that's the point.  Specifically, we want to see Jacoco's output and have it tell us where we need to add test coverage.
 
+The real goal of this project is to demonstrate the reports provided by the plugins described above.
+
 # Requirements
 This Maven project requires the following:
 
@@ -16,15 +18,16 @@ This Maven project requires the following:
 # Conventions for Creating Tests
 Surefire and Failsafe rely on easy-to-remember conventions:
 
-* When creating a **unit test**, the class name should end in `Test`
-  * e.g. `MyServiceTest.java` or `MyControllerTest.java`
+* When creating a **unit test**, the class name should have `Test` somewhere in the name
+  * e.g. `MyServiceTest.java` or `MyControllerTest.java` or `MyBusinessLogicTestCase.java`
+  * Typically the word `Test` is at the end of the class name
 * When creating an **integration test**, the class name should end in `IT`
   * e.g. `MyDatabaseIT.java` or `MyControllerIT.java`
 
 The conventions cited above are from the Surefire and Failsafe documentation.  These conventions can be overridden by configuring the plugin in the `pom.xml`.  Instructions for configuring Surefire can be found [here](https://maven.apache.org/surefire/maven-surefire-plugin/examples/inclusion-exclusion.html) and instructions for Failsafe can be found [here](https://maven.apache.org/surefire/maven-failsafe-plugin/examples/inclusion-exclusion.html).
 
 # Usage
-This project is really geared to exercise the unit and integration tests associated with the `MathApplication` and `CalculatorService` classess/implementations.  There's no entry point per se, so building and running the `.jar` won't do very much.
+This project is really geared to generating reports from the Maven plugins included in this project.  Some of the `MathApplication` and `CalculatorService` classess/implementation methods are coverd by unit tests.  The unit/integration tests are the thing here - not some sort of running program.  There's no entry point per se, so building and running the `.jar` won't do very much.
 
 ## Running the Tests
 To have Maven run the unit and/or integration tests, use one of the following commands:
@@ -173,7 +176,7 @@ Each of the plugins listed in the **Overview** section produce reports that can 
 * `surefire-reports`
 * `failsafe-reports`
 
-The Jacoco reports are created/stored in the `target/site/jacoco`.
+The Jacoco reports are created/stored in the `target/site/jacoco`.  The Jacoco report can be viewed by opening `%REPOSITORY_DIR$/target/site/jacoco/index.html` in a browser.  From here, a user can drill down into the various classes and methods that have been (or have not been) covered by tests.
 
 # Other Resources
 Here are some other resources that might be helpful for gettings started with Mockito and unit/integration testing:
